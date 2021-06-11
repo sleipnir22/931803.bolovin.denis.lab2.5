@@ -1,0 +1,18 @@
+﻿@model Lab5.Models.Laboratory
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<dl class="container">
+    <!-- Name -->
+    <div class="row form-group">
+        <dt class="col-sm-3 text-sm-right font-weight-bold">Name</dt>
+        <dd class="col-sm-3 text-secondary">@Model.Name</dd>
+    </div>
+
+    <!-- Address -->
+    <div class="row form-group">
+        <dt class="col-sm-3 text-sm-right font-weight-bold">Address</dt>
+        <dd class="col-sm-3 text-secondary">@Model.Address</dd>
+    </div>
+</dl>

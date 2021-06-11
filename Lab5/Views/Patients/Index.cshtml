@@ -1,0 +1,25 @@
+﻿@using Lab5.Models
+@model IEnumerable<Lab5.Models.Patient>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<a asp-controller="Patients" asp-action="Create">Create</a>
+<table class="table">
+    <tr>
+        <th>@nameof(Patient.Name)</th>
+        <th>@nameof(Patient.BirthDate)</th>
+    </tr>
+    @foreach (var patient in Model)
+    {
+        <tr>
+            <td>@patient.Name</td>
+            <td>@patient.BirthDate.Date.ToString("d")</td>
+            <td>
+                <a asp-controller="Patients" asp-action="Details" asp-route-id="@patient.Id">Details</a> |
+                <a asp-controller="Patients" asp-action="Edit" asp-route-id="@patient.Id">Edit</a> |
+                <a asp-controller="Patients" asp-action="Delete" asp-route-id="@patient.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

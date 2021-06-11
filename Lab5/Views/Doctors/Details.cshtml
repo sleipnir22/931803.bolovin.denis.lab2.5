@@ -1,0 +1,48 @@
+﻿@model Lab5.Models.Doctor
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Index</h2>
+<h3>Doctor</h3>
+
+<div class="container">
+    <div class="row form-group">
+        <span class="col-sm-3 text-sm-right font-weight-bold">Name</span>
+        <span class="col-sm-3 text-secondary">@Model.Name</span>
+    </div>
+    
+    <div class="row form-group">
+        <span class="col-sm-3 text-sm-right font-weight-bold">Speciality</span>
+        <span class="col-sm-3 text-secondary">@Model.Speciality</span>
+    </div>
+
+    <div class="row form-group">
+        <span class="col-sm-3 text-sm-right font-weight-bold">Hospital</span>
+        <div class="col-sm-3">
+            <a asp-controller="Hospitals" asp-action="Details" asp-route-id="@Model.Hospital?.Id"
+            >@Model.Hospital?.Name</a>
+        </div>
+    </div>
+</div>
+
+@*
+<form>
+    <!-- Name -->
+    <div class="row form-group">
+        <label asp-for="Name" class="col-form-label font-weight-bold col-md-3 text-md-right"></label>
+        <input asp-for="Name" class="col form-control form-control-plaintext" readonly />
+    </div>
+
+    <!-- Speciality -->
+    <div class="row form-group">
+        <label asp-for="Speciality" class="col-form-label font-weight-bold col-md-3 text-md-right"></label>
+        <input asp-for="Speciality" class="col form-control form-control-plaintext" readonly />
+    </div>
+
+    <!-- Hospital -->
+    <div class="row form-group">
+        <label class="col-form-label font-weight-bold col-md-3 text-md-right">Hospital</label>
+        <input class="col form-control form-control-plaintext" readonly value="@Model.Hospital?.Name"/>
+    </div>
+</form>
+    *@

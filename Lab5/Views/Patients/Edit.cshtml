@@ -1,0 +1,48 @@
+﻿@using Lab5.Models
+@model Lab5.Models.Patient
+@{
+    ViewBag.Title = "Edit";
+}
+<h2>Edit</h2>
+<h4>Patient</h4>
+<form asp-controller="Patients" asp-action="Edit" asp-route-id="@Model.Id">
+    <div class="validation" asp-validation-summary="ModelOnly"></div>
+
+    <!-- Name -->
+    <div class="form-group">
+        <label asp-for="Name" class="font-weight-bold"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name"></span>
+    </div>
+
+    <!-- Address -->
+    <div class="form-group">
+        <label asp-for="Address" class="font-weight-bold"></label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address"></span>
+    </div>
+
+    <!-- BirthDate -->
+    <div class="form-group">
+        <label asp-for="BirthDate" class="font-weight-bold"></label>
+        <input asp-for="BirthDate" class="form-control" />
+        <span asp-validation-for="BirthDate"></span>
+    </div>
+
+    <!-- Gender -->
+    <div class="form-group">
+        <label asp-for="Gender" class="font-weight-bold"></label>
+        <select asp-for="Gender" class="form-control">
+            @foreach (var item in Enum.GetValues<Gender>())
+            {
+                <option value="@((int)item)">@item</option>
+            }
+        </select>
+        <span asp-validation-for="BirthDate"></span>
+    </div>
+
+    <!-- Submit -->
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

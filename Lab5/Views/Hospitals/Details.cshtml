@@ -1,0 +1,38 @@
+﻿@model Lab5.Models.Hospital
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+<dl class="container">
+    <!-- Name -->
+    <div class="row form-group">
+        <dt class="col-sm-3 text-sm-right font-weight-bold">Name</dt>
+        <dd class="col-sm-3 text-secondary">@Model.Name</dd>
+    </div>
+
+    <!-- Address -->
+    <div class="row form-group">
+        <dt class="col-sm-3 text-sm-right font-weight-bold">Address</dt>
+        <dd class="col-sm-3 text-secondary">@Model.Address</dd>
+    </div>
+
+    <!-- Phones -->
+    <div class="row form-group">
+        <dt class="col-sm-3 text-sm-right font-weight-bold">Phones</dt>
+        <dd class="col-sm-3 text-secondary">@Model.Phones</dd>
+    </div>
+
+    <!-- Doctors -->
+    <div class="row form-group">
+        <dt class="col-sm-3 text-sm-right font-weight-bold">Doctors</dt>
+        <div class="col-sm-3">
+            @foreach (var doctor in Model.Doctors)
+            {
+                <a asp-controller="Doctors" asp-action="Details" asp-route-id="@doctor.Id">
+                    @doctor.Name,
+                </a>
+            }
+        </div>
+
+    </div>
+</dl>
